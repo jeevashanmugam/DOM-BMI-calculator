@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+</head>
+
+<body>
+
+    <form action="#">
+
+        <input type="number" id="height" value="" placeholder="Enter your height"> <br>
+        <input type="number" id="weight" value="" placeholder="Enter your weight"> <br>
+
+        <button type="submit">Submit</button> <br>
+
+        <div id="result">
+
+
+        </div>
+    </form>
+
+
+    <script>
+
+
+        let form = document.querySelector("form");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let height = Number(document.getElementById("height").value)
+            let weight = Number(document.getElementById("weight").value)
+            let result = document.getElementById("result");
+
+            if ((height === '') || (height < 0)||(height === null)) {
+                result.innerHTML = "Pleace enter valid height";
+                result.style.color = "red";
+            }
+            else if ((weight === '') || (weight < 0)) {
+                result.innerHTML = "Pleace enter valid weight";
+                result.style.color = "red";
+            }
+
+            else {
+                returnValue()
+            }
+
+            function returnValue() {
+                let bmi = height + weight;
+                if ((bmi >= 20)) {
+
+                    result.style.backgroundColor = "green"
+                    result.innerHTML = `<p>${bmi}</p>`
+
+                }
+                else if ((bmi < 20)) {
+
+                    result.style.backgroundColor = "orange"
+                    result.innerHTML = `<p>${bmi}</p>`
+
+                }
+
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>
